@@ -179,10 +179,9 @@ def make_input_lists(B_1, res_1, snr_1):
 if __name__ == "__main__":
     # must be absolute directory
     root_outdir = ""
-    prefix = ""
+    prefix = "MA"
     B_1 = [0.15, 0.2]
     res_1 = [70, 140]
     snr_1 = [5, 10, 15, 20] 
     B,res,snr = make_input_lists(B_1, res_1, snr_1)
-    
     spawn_rfast_retreivals(B, res, snr, root_outdir, prefix)
