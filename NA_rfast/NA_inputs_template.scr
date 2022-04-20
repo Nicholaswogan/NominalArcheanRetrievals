@@ -109,7 +109,7 @@ rnd       = False    # randomize error bars or simply center on truth?
 # parameters for retrieval calculation
 #
 nwalkers  = 200       # emcee, number of walkers
-nstep     = 20000       # emcee, number of steps
+nstep     = 17000       # emcee, number of steps
 nburn     = 1000       # emcee, number of burn-in steps; negative -> count from end
 nprocess  = 3      # number of parallel processes, can be "max"
 thin      = 1        # emcee, thinning parameter
