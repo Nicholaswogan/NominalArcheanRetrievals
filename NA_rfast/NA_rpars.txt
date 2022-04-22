@@ -4,7 +4,7 @@
     fO2      | r"$f_{\rm O2}$"       |     y       |   log   |       f      |   1e-15   |   1e+0
     fH2O     | r"$f_{\rm H2O}$"      |     y       |   log   |       f      |   1e-10   |   1e+0
     fCO2     | r"$f_{\rm CO2}$"      |     y       |   log   |       f      |   1e-10   |   1e+0
-    fO3      | r"$f_{\rm O3}$"       |     y       |   log   |       f      |   1e-20   |   1e-2
+    fO3      | r"$f_{\rm O3}$"       |     y       |   log   |       f      |   1e-25   |   1e-2
     fCO      | r"$f_{\rm CO}$"       |     y       |   log   |       f      |   1e-10   |   1e-2
     fN2O     | r"$f_{\rm N2O}$"      |     n       |   log   |       f      |   1e-10   |   1e-2
     fCH4     | r"$f_{\rm CH4}$"      |     y       |   log   |       f      |   1e-10   |   1e+0
