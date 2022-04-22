@@ -52,8 +52,8 @@ particles:
   
 boundary-conditions:
 - name: H2O
-  # fix water to saturation at surface
-  lower-boundary: {type: mix, mix: 0.015926996381025828}
+  # fix to saturation at surface
+  lower-boundary: {type: mix, mix: 0.017451675027637493}
   upper-boundary: {type: veff, veff: 0.0}
 - name: CO2
   # Median value from Krissansen-Totton et al. (2018), PNAS
@@ -61,20 +61,21 @@ boundary-conditions:
   lower-boundary: {type: mix, mix: 5e-2}
   upper-boundary: {type: veff, veff: 0.0}
 - name: CH4
-  # 50 Tmol/yr. Plausible biological
-  lower-boundary: {type: flux, flux: 1.87e11}
+  # Kharecha et al. (2005), Table 2, second to last row.
+  # This is about 2x the Modern Earth biological methane flux.
+  lower-boundary: {type: flux, flux: 2.27e11}
   upper-boundary: {type: veff, veff: 0.0}
 - name: CO
   # Kharecha et al. (2005) deposition velocity
   # representative of CO consumers. Flux from 
   # Zahnle et al. (2006), Table 1
-  lower-boundary: {type: vdep + dist flux, vdep: 1.2e-4, flux: 3e9, height: 10.0}
+  lower-boundary: {type: vdep + dist flux, vdep: 1.2e-4, flux: 1e9, height: 10.0}
   upper-boundary: {type: veff, veff: 0.0}
 - name: H2
   # Kharecha et al. (2005) deposition velocity
   # representative of methanogens. Flux from 
-  # Zahnle et al. (2006), Table 1
-  lower-boundary: {type: vdep + dist flux, vdep: 2.4e-4, flux: 1e10, height: 10.0}
+  # Kharecha et al. (2005), Table 2, second to last row.
+  lower-boundary: {type: vdep + dist flux, vdep: 2.4e-4, flux: 1.3e11, height: 10.0}
   upper-boundary: {type: veff, veff: 0.0}
 - name: HCN
   # HCN hydrolysis in ocean, Tian et al. (2011)
@@ -85,12 +86,12 @@ boundary-conditions:
   lower-boundary: {type: vdep, vdep: 0.007}
   upper-boundary: {type: veff, veff: 0.0}
 - name: H2S
-  # Zahnle et al. (2006), Table 1
-  lower-boundary: {type: vdep + dist flux, vdep: 0.02, flux: 1e9, height: 10.0}
+  # Arney et al (2016)
+  lower-boundary: {type: vdep + dist flux, vdep: 0.02, flux: 3.500e+08, height: 10.0}
   upper-boundary: {type: veff, veff: 0.0}
 - name: SO2
-  # Zahnle et al. (2006), Table 1
-  lower-boundary: {type: vdep + dist flux, vdep: 1.0, flux: 1e10, height: 10.0}
+  # Arney et al (2016)
+  lower-boundary: {type: vdep + dist flux, vdep: 1.0, flux: 3.500e+09, height: 10.0}
   upper-boundary: {type: veff, veff: 0.0}
 
 # we take just 2 short-lived species

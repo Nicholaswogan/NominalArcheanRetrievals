@@ -5,7 +5,7 @@ import time
 
 THIS_FILE_DIR = os.path.dirname(os.path.realpath(__file__))+'/'
 # constants
-LAM_C = 0.95 # center of wavelength range
+LAM_MAX = 1.0 # end of bandpass
 TEMPLATE_FOLDER = THIS_FILE_DIR+"NA_rfast/"
 TEMPLATE_INPUTS = TEMPLATE_FOLDER+"NA_inputs_template.scr"
 TEMPLATE_RPARS = TEMPLATE_FOLDER+"NA_rpars.txt"
@@ -16,13 +16,17 @@ LAML_PREFIX = "0.6,"
 RES_PREFIX = "0,0,"
 SNR0_PREFIX = "7,0.01,"
 REFRESH_TIME = 5 # seconds
-TIMEOUT = 60*60*24 # 1 day
+TIMEOUT = 60*60*24*3 # 3 days
 
 def bandpass_extents(B, lam_c):
     Dlam = B*lam_c/(1+B*0.5)
     lam_min = lam_c - 0.5*Dlam
     lam_max = lam_c + 0.5*Dlam
     return lam_min, lam_max, Dlam
+    
+def bandpass_extents_end(B, lam_1):
+    lam_0 = lam_1/(1+B)
+    return  lam_0
 
 def make_filenames(root_outdir, prefix, B, res, snr):
     fns_name = \
@@ -47,7 +51,6 @@ def add_extensions_to_files(fns, fnn, fnr):
     fnr_h5 = fnr + '.h5'
     return fns_raw, fnn_dat, fnr_h5
 
-
 def make_dirs_and_files(B, res, snr, root_outdir, prefix):
     # variables to set
     # fns
@@ -63,7 +66,8 @@ def make_dirs_and_files(B, res, snr, root_outdir, prefix):
         lines = f.readlines()
 
     out_files = make_filenames(root_outdir, prefix, B, res, snr)
-    lam_min, lam_max, Dlam = bandpass_extents(B, LAM_C)
+    lam_min = bandpass_extents_end(B, LAM_MAX)
+    lam_max = LAM_MAX
 
     new_lines = []
     for line in lines:
@@ -180,7 +184,7 @@ if __name__ == "__main__":
     # must be absolute directory
     root_outdir = ""
     prefix = "MA"
-    B_1 = [0.15, 0.2]
+    B_1 = [0.15, 0.2, 0.25]
     res_1 = [70, 140]
     snr_1 = [5, 10, 15, 20] 
     B,res,snr = make_input_lists(B_1, res_1, snr_1)
