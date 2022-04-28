@@ -11,25 +11,30 @@ if __name__ == "__main__":
     r = RfastInterface(template_inputs='NA_rfast/NA_inputs_template.scr', \
                        template_rpars='NA_rfast/NA_rpars.txt')
     
-    root_outdir = ""
-
-    res_1 = [70,140]
+    root_outdir = "/Users/nicholas/Documents/Research_local/NASA/NominalArchean/test_dir/"
+    lam0 = 0.75
+    B_1 = [.20,.30]
+    res_1 = [70, 140]
     snr_1 = [5,10,15,20] 
+    
+    B = []
+    lams = []
+    laml = []
     res = []
     snr = []
-    for rr in res_1:
-        for s in snr_1:
-            res.append(rr)
-            snr.append(s)
+    for b in B_1:
+        for rr in res_1:
+            for s in snr_1:
+                B.append(b)
+                lams.append(lam0)
+                laml.append(lam0+lam0*b)
+                res.append(rr)
+                snr.append(s)
             
-    # 20% bandpass
-    lams = list(np.ones(len(res))*0.75)
-    laml = list(np.ones(len(res))*0.90)
-
-    for i in range(len(lams)):
+    for i in range(len(B)):
         # output directory
         outdir = root_outdir+ \
-        ('lams=%.4f'%lams[i])+"_"+('laml=%.4f'%laml[i])+"_"+('res=%.4f'%res[i])+"_"+('snr=%.4f'%snr[i])
+        ('B=%.4f'%B[i])+"_"+('res=%.4f'%res[i])+"_"+('snr=%.4f'%snr[i])
         wavl = [lams[i], laml[i]]
         res_l = [res[i]]
         modes_l = [1]
