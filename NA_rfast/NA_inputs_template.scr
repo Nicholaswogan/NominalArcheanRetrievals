@@ -19,7 +19,7 @@ bg        = ar       # background gas ('ar','ch4','co2','h2','he','n2','o2')
 species_r = n2,o2,h2o,o3,co2,ch4,co,h2                   # radiatively-active species; from: ar,n2,o2,h2o,o3,co2,ch4,h2,he,n2o,co
 f0        = 9.318439e-01,2.804675e-13,1.745168e-02,1.163740e-20,5.000000e-02,4.548043e-04,1.547374e-04,9.378920e-05      # vmrs for active gases; **same order as species_r**
 rdgas     = True            # read gas volume mixing ratio profiles from file?
-fnatm     = ../NA_rfast/NominalArchean.atm # filename for reading in gas vmr profiles
+fnatm     = ../NA_rfast/Archean.atm # filename for reading in gas vmr profiles
 skpatm    = 1               # header lines to skip in atm file
 colr      = 3,4,5,6,7,8,9,10 # columns for active gases; overrides fr parameter; **same order as species_r**
 colpr     = 1                # column in fnatm for pressure
@@ -30,7 +30,7 @@ imix      = 0                # 0 -> mixing ratios are vmrs | 1 -> mixing ratios 
 #
 t0        = 288.15     # temperature at pmax (K)
 rdtmp     = True    # read temperature-pressure profile from file? otherwise isotherm at t0
-fntmp     = ../NA_rfast/NominalArchean.atm # filename for reading in gas vmr profiles
+fntmp     = ../NA_rfast/Archean.atm # filename for reading in gas vmr profiles
 skptmp    = 1       # header lines to skip in thermal structure file
 colt      = 2        # column in fntmp for temperature
 colpt     = 1        # column in fntmp for pressure
@@ -103,7 +103,7 @@ Rs        = 1.0      # host star radius (Rsun)
 #
 ntype     = cerr     # noise type: 'csnr','cnse','cerr','plan','ezod','leak','detr','cppm'
 snr0      = 7,0.01,20      # SNR at lam0; can have same no. of entries as res
-lam0      = 0.980       # (um); can have same no. of entries as res
+lam0      = 0.80       # (um); can have same no. of entries as res
 rnd       = False    # randomize error bars or simply center on truth?
 #
 # parameters for retrieval calculation
@@ -111,7 +111,7 @@ rnd       = False    # randomize error bars or simply center on truth?
 nwalkers  = 200       # emcee, number of walkers
 nstep     = 17000       # emcee, number of steps
 nburn     = 1000       # emcee, number of burn-in steps; negative -> count from end
-nprocess  = 2      # number of parallel processes, can be "max"
+nprocess  = 6      # number of parallel processes, can be "max"
 thin      = 1        # emcee, thinning parameter
 clr       = False    # it true, retrieval operates in center-log ratio
 fmin      = 1e-12    # minimim mixing ratio for clr priors, benneke & seager (2012)
