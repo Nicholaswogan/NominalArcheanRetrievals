@@ -1,9 +1,9 @@
 #
 # filenames and directory for i/o
 #
-fns       = ../NA_rfast/plots/NominalArchean
-fnn       = ../NA_rfast/plots/NominalArchean_n
-fnr       = ../NA_rfast/plots/NominalArchean_n
+fns       = ../NA_rfast/plots/Archean_low/Archean_low
+fnn       = ../NA_rfast/plots/Hadean/Hadean_n
+fnr       = ../NA_rfast/plots/Hadean/Hadean_n
 dirout    =                             # directory to store all outputs
 #
 # parameter for selecting different spectral models
@@ -19,7 +19,7 @@ bg        = ar       # background gas ('ar','ch4','co2','h2','he','n2','o2')
 species_r = n2,o2,h2o,o3,co2,ch4,co,h2                   # radiatively-active species; from: ar,n2,o2,h2o,o3,co2,ch4,h2,he,n2o,co
 f0        = 9.318439e-01,2.804675e-13,1.745168e-02,1.163740e-20,5.000000e-02,4.548043e-04,1.547374e-04,9.378920e-05      # vmrs for active gases; **same order as species_r**
 rdgas     = True            # read gas volume mixing ratio profiles from file?
-fnatm     = ../NA_rfast/NominalArchean.atm # filename for reading in gas vmr profiles
+fnatm     = ../templates/Archean/Archean_low.atm # filename for reading in gas vmr profiles
 skpatm    = 1               # header lines to skip in atm file
 colr      = 3,4,5,6,7,8,9,10 # columns for active gases; overrides fr parameter; **same order as species_r**
 colpr     = 1                # column in fnatm for pressure
@@ -30,7 +30,7 @@ imix      = 0                # 0 -> mixing ratios are vmrs | 1 -> mixing ratios 
 #
 t0        = 288.15     # temperature at pmax (K)
 rdtmp     = True    # read temperature-pressure profile from file? otherwise isotherm at t0
-fntmp     = ../NA_rfast/NominalArchean.atm # filename for reading in gas vmr profiles
+fntmp     = ../templates/Archean/Archean_low.atm # filename for reading in gas vmr profiles
 skptmp    = 1       # header lines to skip in thermal structure file
 colt      = 2        # column in fntmp for temperature
 colpt     = 1        # column in fntmp for pressure
